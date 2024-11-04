@@ -22,6 +22,7 @@ const listingRouter = require('./routes/listing.js');
 const reviewRouter = require('./routes/review.js');
 const userRouter = require('./routes/user.js');
 const { Server } = require('http');
+const lisitngController = require('./controllers/listings.js');
 
 //MOGODB ATLUS Server
 const dbUrl = process.env.ATLAS_URL;
@@ -81,6 +82,7 @@ app.use((req, res, next) => {
   next();
 });
 
+app.get('/', lisitngController.index);
 app.use('/listings', listingRouter);
 app.use('/listings/:id/reviews', reviewRouter);
 app.use('/', userRouter);
