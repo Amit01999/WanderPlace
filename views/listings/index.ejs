@@ -1,0 +1,320 @@
+<% layout("/layouts/boilerplate")%>
+
+  <style>
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 1rem 0rem;
+    }
+
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+
+    .filter-options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    .filter {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 0.75rem;
+      background-color: #ffffff;
+      border-radius: 0.5rem;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      transition: box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    .filter:hover {
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .filter i {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: #E52459;
+    }
+
+    .filter i:hover {
+      font-size: 2rem;
+      color: #2ecc71;
+    }
+
+    .filter p {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: #4a5568;
+      margin: 0;
+    }
+
+    .tax-switch {
+      display: flex;
+      align-items: center;
+      margin-top: 1rem;
+    }
+
+    .tax-switch label {
+      margin-left: 0.5rem;
+      font-size: 0.875rem;
+      color: #4a5568;
+    }
+
+    .listings {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .listing-card {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      overflow: hidden;
+    }
+
+    .listing-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .listing-content {
+      padding: 1rem;
+    }
+
+    .listing-image {
+      width: 100%;
+      height: 200px;
+      border-radius: 10px;
+      object-fit: cover;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .listing-title {
+      font-size: 1.2rem;
+      margin: 0.5rem 0;
+    }
+
+    .listing-price {
+      color: #2ecc71;
+      font-weight: bold;
+    }
+
+    .listing-price span {
+      font-size: 0.875rem;
+      font-weight: 400;
+    }
+
+    .tax-switch input:checked {
+      background-color: #2ecc71;
+      /* Green background when checked */
+      border-color: #2ecc71;
+      /* Green border */
+    }
+
+    .tax-switch input:checked {
+      background-color: #2ecc71;
+      /* Green background when checked */
+      border-color: #2ecc71;
+      /* Green border */
+    }
+
+    .tax-switch input:checked::before {
+      background-color: #2ecc71;
+      /* Ensures the checkmark icon is also green */
+    }
+
+    .tax-info {
+      font-size: 0.75rem;
+      color: #718096;
+      margin-top: 0.25rem;
+    }
+
+    .listing-footer {
+      background-color: #f7fafc;
+      padding: 0.75rem 1rem;
+      border-top: 1px solid #e2e8f0;
+    }
+
+    .listing-link {
+      color: #4299e1;
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+
+    .listing-link:hover {
+      text-decoration: underline;
+    }
+
+    .list-your-place-section {
+      position: relative;
+      padding: 4rem 0;
+      text-align: center;
+      color: #fff;
+      overflow: hidden;
+    }
+
+    .list-your-place-section::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url('/image/listpic.jpg');
+      /* Adjust path as needed */
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      /* Optional: for parallax effect */
+      border-radius: 15px;
+      /* Adjust border-radius as needed */
+      z-index: -1;
+    }
+
+    .list-your-place-section .container {
+      position: relative;
+      z-index: 2;
+      /* Ensure content appears above the overlay */
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .list-your-place-section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .list-your-place-section p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    .list-place-button {
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      color: #fff;
+      background-color: #2ecc71;
+      border-radius: 5px;
+      text-transform: uppercase;
+      transition: background-color 0.3s ease;
+      text-decoration: none;
+    }
+
+    .list-place-button:hover {
+      background-color: #27ae60;
+    }
+  </style>
+
+  <div class="container">
+    <div class="filters">
+      <div class="filter-options">
+        <div class="filter">
+          <i class="fa-solid fa-fire"></i>
+          <p>Trending</p>
+        </div>
+        <div class="filter">
+          <i class="fa-solid fa-bed"></i>
+          <p>Rooms</p>
+        </div>
+        <div class="filter">
+          <i class="fa-solid fa-mountain-city"></i>
+          <p>Iconic Cities</p>
+        </div>
+        <div class="filter">
+          <i class="fa-brands fa-fort-awesome"></i>
+          <p>Castles</p>
+        </div>
+        <div class="filter">
+          <i class="fa-solid fa-mountain-sun"></i>
+          <p>Mountain Views</p>
+        </div>
+        <div class="filter">
+          <i class="fa-solid fa-tent"></i>
+          <p>Camping</p>
+        </div>
+        <div class="filter">
+          <i class="fa-solid fa-person-swimming"></i>
+          <p>Amazing Nature</p>
+        </div>
+        <div class="filter">
+          <i class="fa-solid fa-tractor"></i>
+          <p>Farms</p>
+        </div>
+        <div class="filter">
+          <i class="fa-solid fa-snowflake"></i>
+          <p>Arctic</p>
+        </div>
+        <div class="filter">
+          <i class="fa-solid fa-ship"></i>
+          <p>Boats</p>
+        </div>
+        <div class="filter">
+          <i class="fa-solid fa-umbrella-beach"></i>
+          <p>Beach</p>
+        </div>
+      </div>
+      <div class="tax-switch">
+        <div class="form-check-reverse form-switch">
+          <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+          <label class="form-check-label" for="flexSwitchCheckDefault">Display Taxes</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="listings">
+      <% for(let listing of allListings) { %>
+        <a href="/listings/<%= listing._id %>" class="listing-card">
+          <div class="listing-content">
+            <img src="<%= listing.image.url %>" alt="<%= listing.title %>" class="listing-image">
+            <div>
+              <h3 class="listing-title">
+                <%= listing.title %>
+              </h3>
+              <p class="listing-price">₹<%= listing.price %> <span>/Night</span></p>
+              <p class="tax-info" style="display: none;">+18% GST</p>
+            </div>
+          </div>
+        </a>
+        <% } %>
+
+
+
+    </div>
+    <div>
+      <section class="list-your-place-section">
+        <div class="container">
+          <h2>Have a Place to Share?</h2>
+          <p>List your property and connect with travelers from around the world. Join our community and start earning
+            today!
+          </p>
+
+          <a href="/listings/new" class="btn btn-primary list-place-button">List Your Place</a>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <script>
+    let taxSwitch = document.getElementById("flexSwitchCheckDefault");
+    taxSwitch.addEventListener("click", () => {
+      let taxInfo = document.getElementsByClassName("tax-info");
+      for (let info of taxInfo) {
+        info.style.display = info.style.display === "none" ? "block" : "none";
+      }
+    });
+  </script>

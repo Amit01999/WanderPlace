@@ -1,0 +1,105 @@
+<% layout("/layouts/boilerplate")%>
+
+    <style>
+        :root {
+            --primary-color: #DB315F;
+            --secondary-color: #2ECC71;
+            --text-color: #333;
+            --background-color: #f4f4f4;
+        }
+
+        body {
+            background-color: var(--background-color);
+            font-family: 'Arial', sans-serif;
+        }
+
+        .login-container {
+            max-width: 400px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .login-title {
+            color: var(--primary-color);
+            text-align: center;
+        }
+
+        .form-label {
+            color: var(--text-color);
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.75rem;
+            margin-bottom: 1rem;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .btn-login {
+            width: 100%;
+            padding: 0.75rem;
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-login:hover {
+            background-color: #27ae60;
+        }
+
+        .form-footer {
+            text-align: center;
+            margin-top: 1rem;
+            color: var(--text-color);
+        }
+
+        .form-footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .form-footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+
+    <div class="login-container">
+        <h3 class="login-title">Login</h3>
+        <form action="/login" method="POST" class="needs-validation" novalidate>
+            <div class="mb-3">
+                <label for="username" class="form-label">Username</label>
+                <input name="username" id="username" type="text" class="form-control" required autofocus />
+            </div>
+
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input name="password" id="password" type="password" class="form-control" required />
+            </div>
+
+            <button class="btn-login">Login</button>
+        </form>
+
+        <div class="form-footer">
+            <p>Don't have an account? <a href="/signup">Sign up</a></p>
+        </div>
+    </div>

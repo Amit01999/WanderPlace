@@ -1,0 +1,75 @@
+<style>
+  .search-btn,
+  .login-btn {
+    height: 40px;
+    /* Set a fixed height for consistency */
+    background-color: #E52459;
+    color: white;
+    border-radius: 25px;
+    padding: 0 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    margin: 0;
+  }
+
+  .search-btn:hover {
+    background-color: #2ecc71;
+  }
+
+  .search-inp {
+    height: 40px;
+    /* Match the button height */
+    width: 200px;
+    /* Set a consistent width */
+    border-color: #E52459;
+    border-radius: 25px;
+    padding: 0.5rem 1.5rem;
+    transition: border-color 0.3s ease;
+  }
+
+  .search-inp:hover {
+    border-color: #2ecc71;
+  }
+
+  /* Reset anchor tags in buttons to prevent styling conflicts */
+  .login-btn a,
+  .search-btn a {
+    color: white;
+    text-decoration: none;
+  }
+
+  .login-btn {
+    background-color: #2ecc71;
+    margin-left: 8px;
+    border: 2px solid #545454;
+  }
+
+  .login-btn:hover {
+    background-color: #E52459;
+  }
+</style>
+
+<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
+  <div class="container-fluid">
+    <a href="/listings"><img class="logo" src="/image/logo.png" alt="Logo"></a>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav ms-auto">
+        <form class="d-flex" role="search">
+          <input class="form-control me-3 search-inp" type="search" placeholder="Search Destinations">
+          <button class="search-btn" type="submit">Search</button>
+        </form>
+      </div>
+
+      <div class="navbar-nav ms-auto">
+        <% if (!currUser) { %>
+          <a href="/signup" class="login-btn"><b>Sign up</b></a>
+          <a href="/login" class="login-btn"><b>Log in</b></a>
+          <% } else { %>
+            <a href="/logout" class="login-btn">Log out</a>
+            <% } %>
+      </div>
+    </div>
+  </div>
+</nav>

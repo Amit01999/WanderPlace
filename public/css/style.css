@@ -1,0 +1,94 @@
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    flex: 1;
+}
+
+/* Navbar */
+.navbar {
+    height: 5rem;
+    background-color: white;
+}
+
+.logo {
+    height: 45px;
+    width: 150px;
+}
+
+.container-fluid {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.nav-link {
+    /* !important must override other style and apply it  */
+    color: #222222 !important;
+}
+
+.f-info-socials i {
+    font-size: 1.5rem;
+    margin-right: 1rem;
+}
+
+.f-info {
+    text-align: center;
+    height: 8rem;
+    background-color: #ebebeb;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: space-evenly;
+}
+
+/* new page */
+.btn {
+    background-color: #DB3162;
+    border: none !important;
+}
+
+/* add new page form*/
+#all {
+    background-color: wheat;
+    opacity: 2;
+    margin: auto;
+    padding: 15px;
+    border-radius: 15px;
+}
+
+.newform {
+    padding: 20px;
+}
+
+/* Edit page form */
+.editbtn {
+    border: none !important;
+    color: white;
+}
+
+.btn-delete {
+    border: none !important;
+    color: white;
+    background-color: #fe424d !important;
+}
+
+#all2 {
+    background-color: wheat;
+    opacity: 2;
+    margin: auto;
+    padding: 15px;
+    border-radius: 15px;
+}
+
+.editform {
+    padding: 20px;
+}
+
+/* show page */
+.show-img {
+    height: 35vh;
+}

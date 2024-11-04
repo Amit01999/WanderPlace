@@ -1,0 +1,121 @@
+<% layout("/layouts/boilerplate")%>
+
+  <style>
+    :root {
+      --primary-color: #DB315F;
+      --secondary-color: #2ECC71;
+      --text-color: #333;
+      --background-color: #f4f4f4;
+      --white: #ffffff;
+    }
+
+    body {
+      background-color: var(--background-color);
+      font-family: 'Arial', sans-serif;
+    }
+
+    .signup-container {
+      max-width: 500px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background-color: var(--white);
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .signup-title {
+      color: var(--primary-color);
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .form-label {
+      color: var(--text-color);
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 0.75rem;
+      margin-bottom: 1rem;
+      border: 2px solid #ddd;
+      border-radius: 5px;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--primary-color);
+    }
+
+    .btn-signup {
+      width: 100%;
+      padding: 0.75rem;
+      background-color: var(--secondary-color);
+      color: var(--white);
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-signup:hover {
+      background-color: #27ae60;
+    }
+
+    .valid-feedback {
+      color: var(--secondary-color);
+      font-size: 0.875rem;
+      margin-top: 0.25rem;
+    }
+
+    .form-footer {
+      text-align: center;
+      margin-top: 1rem;
+      color: var(--text-color);
+    }
+
+    .form-footer a {
+      color: var(--primary-color);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .form-footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+
+  <div class="signup-container">
+    <h3 class="signup-title">Sign up for WanderPlace</h3>
+    <form action="/signup" method="POST" class="needs-validation" novalidate>
+      <div class="mb-3">
+        <label for="username" class="form-label">Username</label>
+        <input name="username" id="username" type="text" class="form-control" required autofocus />
+        <div class="valid-feedback">Looks good!</div>
+      </div>
+
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input name="email" id="email" type="email" class="form-control" required />
+        <div class="valid-feedback">Looks good!</div>
+      </div>
+
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input name="password" id="password" type="password" class="form-control" required />
+        <div class="valid-feedback">Password looks strong!</div>
+      </div>
+
+      <button class="btn-signup">Sign Up</button>
+    </form>
+
+    <div class="form-footer">
+      <p>Already have an account? <a href="/login">Log in</a></p>
+    </div>
+  </div>
