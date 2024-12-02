@@ -69,7 +69,8 @@ Atlas for database management.
 
 #### Authors ✍️
 
-- **Amit Kumar Bishwas** -Contact: [E-mail](amitsarkar019999@gmail.com)
+- **Amit Kumar Bishwas**
+- E-mail: amitsarkar019999@gmail.com
 
 This WanderPlace project showcases my proficiency in full-stack web development,
 from creating an engaging front-end to managing the back-end and database
